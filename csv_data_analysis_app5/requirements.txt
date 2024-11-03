@@ -1,0 +1,9 @@
+langchain
+streamlit
+langchain-google-genai
+tiktoken
+pinecone-client
+langchain-huggingface
+pandas
+langchain-experimental
+tabulate
