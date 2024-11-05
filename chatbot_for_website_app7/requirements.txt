@@ -1,0 +1,10 @@
+langchain
+langchain-text-splitters
+langchain-community
+langchain-google-genai
+pinecone-client
+tiktoken
+nest-asyncio
+lxml
+bs4
+sentence-transformers
