@@ -1,0 +1,10 @@
+langchain
+streamlit
+tiktoken
+unstructured
+pinecone-client
+pypdf
+sentence-transformers
+langchain-google-genai
+uuid
+langchain-community
