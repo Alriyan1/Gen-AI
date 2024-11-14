@@ -1,0 +1,70 @@
+```python
+# Original Code (with line numbers for reference)
+# 1. num = 39
+# 2. flag = False
+# 3. if num == 1:
+# 4.     print(num, "is not a prime number")
+# 5. elif num > 1:
+# 6.     for i in range(2, num):
+# 7.         if (num % i) == 0:
+# 8.             flag = True
+# 9.             break
+# 10. 
+# 11.     if flag:
+# 12.         print(num, "is not a prime number")
+# 13.     else:
+# 14.         print(num, "is a prime number")
+
+
+# Improved Code with explanations
+
+import math
+
+def is_prime(num):
+    """Efficiently checks if a number is prime."""  # Docstring added for clarity
+
+    if num <= 1:  # Combined conditions (lines 3 and 5)
+        return False  # Use return for cleaner logic
+    if num <= 3:  # Handle 2 and 3 separately for efficiency
+        return True 
+    if num % 2 == 0 or num % 3 == 0:  # Quick check for divisibility by 2 or 3
+        return False
+
+    # Optimized loop: Only check up to the square root of num, and increment by 6 (6k ± 1 optimization)
+    for i in range(5, int(math.sqrt(num)) + 1, 6):  
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+
+    return True  # No divisors found, so it's prime
+
+
+num = 39
+if is_prime(num):  # Use the function for cleaner code
+    print(num, "is a prime number")
+else:
+    print(num, "is not a prime number")
+
+
+
+# Key Improvements:
+# - Function is_prime(): Encapsulates the prime-checking logic for reusability.
+# - Docstring: Added for better understanding of the function's purpose.
+# - Efficiency: 
+#     - Handles base cases (0, 1, 2, 3) directly.
+#     - Optimizes the loop by checking only up to the square root of num.
+#     - Uses the 6k ± 1 optimization for further efficiency.
+# - Clearer Logic: Uses return statements within the function to avoid the flag variable, making the code more readable.
+# - Combined Conditions: Simplified the initial checks for num <= 1.
+```
+
+
+Specific comments related to the original code lines:
+
+- **Line 2:** Using a flag variable can often make logic less clear. It's better to use `return` statements within a function to directly indicate the result.
+- **Lines 3-4:** These can be combined with the `elif num > 1` condition.
+- **Line 6:** The loop's upper bound can be optimized to `int(math.sqrt(num)) + 1`. We only need to check divisors up to the square root. Further optimization is using 6k ± 1.
+- **Lines 7-9:** The `flag` and `break` can be replaced with a direct `return False` within the function.
+- **Lines 11-14:** The output can be simplified by using the function's return value.
+
+
+By implementing these changes, the code becomes more efficient, readable, and reusable.  The 6k ± 1 optimization significantly reduces the number of iterations required for larger numbers, making the prime check considerably faster.  Encapsulating the logic in a function promotes code organization and allows you to reuse the `is_prime` check elsewhere in your program if needed.
